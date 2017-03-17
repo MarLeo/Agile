@@ -68,9 +68,9 @@ public  class Person implements PersonAdapter {
 	}
 
 
-	public LocalDate getBirthdate() {
+	/*public LocalDate getBirthdate() {
 		return birthdate;
-	}
+	}*/
 
 
 	public void setBirthdate(LocalDate birthdate) {
@@ -107,8 +107,6 @@ public  class Person implements PersonAdapter {
 
 	@Override
 	public int age(LocalDate birthdate, LocalDate now) {
-		
-		//return Period.fieldDifference(birthdate, now).getYears();
 		return Years.yearsBetween(birthdate, now).getYears();
 	}
 	

@@ -26,5 +26,21 @@ public class Manager extends Person {
 	public List<Player> getPlayers() {
 		return players;
 	}
+	
+	public int averagePlayerSalary(List<Player> players) {
+		int avg = 0;
+		for (Player player : players) {
+			avg += player.getSalary()/players.size();
+		}
+		return avg;
+	}
+	
+	public int averagePlayerAge(List<Player> players) {
+		int avg = 0;
+		for (Player player : players) {
+			avg += player.getAge()/players.size();
+		}
+		return avg;
+	}
 
 }
