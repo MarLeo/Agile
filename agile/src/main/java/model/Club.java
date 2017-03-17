@@ -6,9 +6,9 @@ import java.util.List;
 import org.joda.time.LocalDate;
 import org.joda.time.Years;
 
-import pattern.PersonAdapter;
+import pattern.Adapter;
 
-public class Club implements PersonAdapter {
+public class Club implements Adapter {
 
 	private String name;
 	private LocalDate birthdate;
@@ -78,7 +78,7 @@ public class Club implements PersonAdapter {
 		return maxs;
 	}
 	
-	public int totalEmployees() {
+	/*public int totalEmployees() {
 		return employees.size() + players.size();
 	}
 	
@@ -109,7 +109,7 @@ public class Club implements PersonAdapter {
 		
 		return maxs;
 	}
-	
+	*/
 	
 	public String getName() {
 		return name;

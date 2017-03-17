@@ -6,32 +6,16 @@ import org.joda.time.Years;
 
 import exceptions.BadAgumentsException;
 
-public  class Person implements PersonAdapter {
+public  class Person implements Adapter {
 	private String name;
 	private String surname;
 	LocalDate birthdate;
 	private char sex;
 	private String country;
 	private Integer age;
-	
-	private PersonStrategy personStrategy;
-	private PlayerStrategy playerStrategy;
-	private ManagerStrategy managerStrategy;
-	
-	private PersonAdapter personAdapter;
-	
+
 	
 	public Person() {}
-	
-	public Person(final PersonStrategy personStrategy, final PlayerStrategy playerStrategy, final ManagerStrategy managerStrategy){
-		this.personStrategy = personStrategy;
-		this.playerStrategy = playerStrategy;
-		this.managerStrategy = managerStrategy;
-	}
-	
-	public Person(final PersonAdapter personAdapter) {
-		this.personAdapter = personAdapter;
-	}
 	
 	public Person(final String name, final String surname, final Integer year, final Integer month, final Integer day, final char sex, final String country) throws BadAgumentsException, IllegalFieldValueException {
 		if(year <= 0 ) throw new BadAgumentsException("year is negative or null");

@@ -5,7 +5,7 @@ import java.util.List;
 
 import exceptions.BadAgumentsException;
 import pattern.Person;
-import pattern.PersonAdapter;
+import pattern.Adapter;
 
 public class Manager extends Person {
 

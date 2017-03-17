@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import exceptions.BadAgumentsException;
+import factory.Factory;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -18,6 +19,8 @@ public class ClubTest {
 	Player player;
 	Employee employee;
 	Manager manager;
+	
+	Factory factory;
 	
 	
 	// dummy variables
@@ -50,6 +53,27 @@ public class ClubTest {
 	private Integer manager_day;
 	private char manager_sex;
 	private String manager_country;
+	
+	
+	// dummy variables
+		private String employee_name;
+		private String employee_surname;
+		private Integer employee_year;
+		private Integer employee_month;
+		private Integer employee_day;
+		private char employee_sex;
+		private String employee_country;
+		private String employee_job;
+		private Integer employee_salary; 
+		
+		private Integer employee_start_year;
+		private Integer employee_start_month;
+		private Integer employee_start_day;
+		
+		private Integer employee_end_year;
+		private Integer employee_end_month;
+		private Integer employee_end_day;
+	
 	
 	
 	
@@ -86,6 +110,28 @@ public class ClubTest {
 		manager_day = new Integer(12);
 		manager_sex = 'F';
 		manager_country = "Cameroun";	
+		
+		// employee value
+		employee_name = "Charly";
+		employee_surname = "Tchokonthe";
+		employee_year = new Integer(1994);
+		employee_month = new Integer(10);
+		employee_day = new Integer(12);
+		employee_sex = 'M';
+		employee_country = "Cameroun";
+		employee_job = "coach";
+		employee_salary = new Integer(10000);
+		
+		employee_start_year = new Integer(2012);
+		employee_start_month = new Integer(10);
+		employee_start_day = new Integer(30);
+		
+		employee_end_year = new Integer(2016);
+		employee_end_month = new Integer(8);
+		employee_end_day = new Integer(21);
+		
+		factory = new Factory();
+		
 	}
 	
 	
@@ -112,17 +158,17 @@ public class ClubTest {
 		player = new Player(player_name, player_surname, player_year, player_month, player_day, sex, country);
 		manager = new Manager(manager_name, manager_surname, manager_year, manager_month, manager_day, manager_sex, manager_country);
 		player.signContract(manager, player_salary, new Integer(2006), new Integer(7), new Integer(10), new Integer(2010), new Integer(7), new Integer(10), club);
+		employee = (Employee) factory.instance("EMPLOYEE", employee_name, employee_surname, employee_year, employee_month, employee_day, employee_sex, employee_country, employee_start_year, employee_start_month, employee_start_day, employee_end_year, employee_end_month, employee_end_day, employee_job, employee_salary);
 		club.addPlayers(player);
-		assertThat(1, is(club.totalEmployees()));
-		assertThat(30000, is(club.MaxsSalary()[0]));
-		assertThat(30000, is(club.MaxsSalary()[1]));
-		
+		//assertThat(1, is(club.totalEmployees()));
+		//assertThat(30000, is(club.MaxsSalary()[0]));
+		//assertThat(30000, is(club.MaxsSalary()[1]));
+		club.addCollaborators(employee);
 		club.addCollaborators(player);
-		assertThat(1, is(club.getTotal()));
+		assertThat(2, is(club.getTotal()));
 		assertThat(30000, is(club.getMaxs()[0]));
 		assertThat(30000, is(club.getMaxs()[1]));
-		assertThat(Integer.MIN_VALUE, is(club.getMaxs()[2]));
-		
+		assertThat(10000, is(club.getMaxs()[2]));
 	}
 	
 	

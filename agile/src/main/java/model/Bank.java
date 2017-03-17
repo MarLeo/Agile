@@ -6,9 +6,9 @@ import java.util.List;
 import org.joda.time.LocalDate;
 import org.joda.time.Years;
 
-import pattern.PersonAdapter;
+import pattern.Adapter;
 
-public class Bank implements PersonAdapter{
+public class Bank implements Adapter{
 	
 	private String name;
 	private LocalDate birthdate;

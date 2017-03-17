@@ -53,11 +53,6 @@ public class Employee extends Person {
 		return contract_time;
 	}
 
-
-	/*public void setContract_time(Integer contract_time) {
-		this.contract_time = contract_time;
-	}*/
-
 	public Integer time(final LocalDate start, final LocalDate end) {
 		return new Integer(Years.yearsBetween(start, end).getYears());
 	}
